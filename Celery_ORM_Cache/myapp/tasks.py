@@ -10,3 +10,8 @@ def sub(x,y):
 def add(x,y):
     sleep(20) # holding for 20 seconds
     return x+y
+
+@shared_task
+def clear_session_cache(time_id):
+    print(f'session cache cleared {time_id}')
+    return time_id
