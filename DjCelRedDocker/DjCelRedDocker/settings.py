@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_beat',
     'api',
 ]
 
@@ -124,6 +125,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Celery Redis configs
-CELERY_BROKER_URL='redis://127.0.0.1:6379/123'
+'''CELERY_BROKER_URL='redis://127.0.0.1:6379/123'
 CELERY_RESULT_BACKEND='redis://127.0.0.1:6379/123'
+'''
+
+# for docker 
+CELERY_BROKER_URL='redis://redis:6379/1'
+CELERY_RESULT_BACKEND='redis://redis:6379/1'
 
