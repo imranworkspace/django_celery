@@ -59,3 +59,15 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=DjCelRedDocker.settings
 
+  # ----------------- NGNIX -----------------
+  nginx:
+      image: nginx:alpine
+      container_name: nginx
+      volumes:
+        - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        - ./app/static:/app/static
+        - ./app/media:/app/media
+      ports:
+        - "80:80"
+      depends_on:
+        - django # django service name
